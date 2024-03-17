@@ -19,8 +19,8 @@ curl --location 'http://localhost:8080/fetch/products' \
 --header 'Content-Type: application/json' \
 --data '{
     "reqType": "sell", // "buy"
-    "pageNumber": 3,
-    "pageSize": 2
+    "pageNumber": 1,
+    "pageSize": 10
 }'
 Sync Products
 This endpoint is used to sync products. Read products from excel to database
