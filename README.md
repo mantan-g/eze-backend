@@ -18,7 +18,7 @@ Copy code
 curl --location 'http://localhost:8080/fetch/products' \
 --header 'Content-Type: application/json' \
 --data '{
-    "reqType": "sell",
+    "reqType": "sell", // "buy"
     "pageNumber": 3,
     "pageSize": 2
 }'
