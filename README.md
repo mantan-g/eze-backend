@@ -1,36 +1,48 @@
-Eze Backend
+# Eze Backend
+
 Eze Backend is the server-side component for the Eze application.
 
-Getting Started
+## Getting Started
+
 To get started with the project, follow these steps:
 
-Clone the project repository.
-Run npm install to install dependencies.
-Create a .env file from env.example.
-Add your MongoDB URI to the .env file. If you don't have one, you can request it by emailing gaurav.mantan1999@gmail.com.
-After configuring the .env file, run npm run dev to start the development server.
-API Endpoints
-Fetch Products
+1. Clone the project repository.
+2. Run `npm install` to install dependencies.
+3. Create a `.env` file from `env.example`.
+4. Add your MongoDB URI to the `.env` file. If you don't have one, you can request it by emailing [gaurav.mantan1999@gmail.com](mailto:gaurav.mantan1999@gmail.com).
+5. After configuring the `.env` file, run `npm run dev` to start the development server.
+
+## API Endpoints
+
+### Fetch Products
+
 Use this endpoint to fetch products based on certain criteria.
 
-bash
-Copy code
-curl --location 'http://localhost:8080/fetch/products' \
+#### Request Examples
+
+```bash
+# Fetch products for selling
+curl --location 'https://eze-backend.onrender.com/fetch/products' \
 --header 'Content-Type: application/json' \
 --data '{
-    "reqType": "sell", // "buy"
+    "reqType": "sell",
+    "pageNumber": 1,
+    "pageSize": 2
+}'
+
+# Fetch products for buying
+curl --location 'https://eze-backend.onrender.com/fetch/products' \
+--header 'Content-Type: application/json' \
+--data '{
+    "reqType": "buy",
     "pageNumber": 1,
     "pageSize": 10
 }'
-Sync Products
-This endpoint is used to sync products. Read products from excel to database
 
-bash
-Copy code
-curl --location 'http://localhost:8080/sync/products'
-Delete Synced Products
-In case of multiple sync operations, use this endpoint to remove duplicate data.
+# Sync products from excel
+curl --location 'https://eze-backend.onrender.com/sync/products'
 
-bash
-Copy code
-curl --location --request DELETE 'http://localhost:8080/sync/products/delete'
+# Delete products from table
+curl --location --request DELETE 'https://eze-backend.onrender.com/sync/products/delete'
+
+```
